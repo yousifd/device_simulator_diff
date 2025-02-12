@@ -39,3 +39,16 @@ t 735596 f 264404
 t 976502 f 23498
 t 597882 f 402118
 ```
+
+Example output after retaining the depth stencil state object in a dictionary within a single draw
+```
+t 999999 f 1
+t 999999 f 1
+t 999999 f 1
+t 999999 f 1
+t 999999 f 1
+t 999999 f 1
+t 999999 f 1
+t 999999 f 1
+t 999999 f 1
+```

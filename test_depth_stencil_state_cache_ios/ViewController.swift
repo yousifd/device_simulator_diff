@@ -24,13 +24,15 @@ class ViewController: UIViewController {
     }
 }
 
+var dict: [Int: MTLDepthStencilState] = [:]
+
 extension ViewController: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {}
     
     func draw(in view: MTKView) {
         var prev = 0
         var t = 0, f = 0
-        for _ in 1...1000000 {
+        for i in 1...1000000 {
             let descriptor = MTLDepthStencilDescriptor()
             descriptor.isDepthWriteEnabled = true
             let state = view.device?.makeDepthStencilState(descriptor: descriptor)
@@ -41,7 +43,9 @@ extension ViewController: MTKViewDelegate {
             } else {
                 f += 1
             }
+//            print("prev", prev, "k", k, "i", i)
             prev = k
+            dict[i] = state
         }
         print("t", t, "f", f)
     }
